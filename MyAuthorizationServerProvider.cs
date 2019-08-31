@@ -30,7 +30,7 @@ namespace RedCoreApi
                 identity.AddClaim(new Claim(ClaimTypes.Name, "Vickey Wadhwani"));
                 context.Validated(identity);
             }
-            else if (context.UserName == "user" && context.Password == "user")
+            else if (context.UserName == "user@yopmail.com" && context.Password == "user1234")
             {
                 identity.AddClaim(new Claim(ClaimTypes.Role, "user"));
                 identity.AddClaim(new Claim("username", "user"));
