@@ -13,7 +13,7 @@ namespace RedCoreApi.Controllers
     public class UsersController : ApiController
     {
         
-        //private UserDBModel db = new UserDBModel();
+        
         private ISRedCoreContext db = new UserDBModel();
        
         // add these constructors
@@ -25,14 +25,14 @@ namespace RedCoreApi.Controllers
         }
         
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         // GET: api/Users
         public IQueryable<user> Getuser()
         {   
             return db.user;
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         // GET: api/Users/5
         [ResponseType(typeof(user))]
         public IHttpActionResult Getuser(int id)
@@ -46,7 +46,7 @@ namespace RedCoreApi.Controllers
             return Ok(user);
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
         public IHttpActionResult Putuser(int id, user user)
@@ -88,7 +88,7 @@ namespace RedCoreApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         // PATCH: api/Users/5
         [ResponseType(typeof(void))]
         [HttpPatch]
@@ -137,7 +137,7 @@ namespace RedCoreApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         // POST: api/Users
         [ResponseType(typeof(user))]
         public IHttpActionResult Postuser(user user)
@@ -174,7 +174,7 @@ namespace RedCoreApi.Controllers
             return CreatedAtRoute("DefaultApi", new { id = user.userid }, user);
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         // DELETE: api/Users/5
         [ResponseType(typeof(user))]
         public IHttpActionResult Deleteuser(int id)
